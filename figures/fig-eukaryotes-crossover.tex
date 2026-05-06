@@ -1,0 +1,34 @@
+% Gallery figure source
+% Summary: Crossover recombination creates a chromosome whose left and right parts may have different ancestral histories. Nearby sites are more likely to remain linked.
+\documentclass[tikz,border=6pt]{standalone}
+\input{_preamble.tex}
+
+\begin{document}
+\begin{tikzpicture}[scale=1.0]
+  \node[font=\bfseries] at (1.5,2.6) {Before crossover};
+  \draw[segment,mainblue] (0,1.7)--(3,1.7);
+  \draw[segment,burntorange] (0,1.1)--(3,1.1);
+  \node[left] at (0,1.7) {copy 1};
+  \node[left] at (0,1.1) {copy 2};
+
+  \begin{scope}[xshift=4.6cm]
+  \node[font=\bfseries] at (1.5,2.6) {Crossover};
+  \draw[segment,mainblue] (0,1.7)--(1.3,1.7);
+  \draw[segment,mainblue] (1.3,1.7).. controls (1.6,1.7) and (1.5,1.1)..(1.8,1.1);
+  \draw[segment,mainblue] (1.8,1.1)--(3,1.1);
+  \draw[segment,burntorange] (0,1.1)--(1.3,1.1);
+  \draw[segment,burntorange] (1.3,1.1).. controls (1.6,1.1) and (1.5,1.7)..(1.8,1.7);
+  \draw[segment,burntorange] (1.8,1.7)--(3,1.7);
+  \node[above,font=\small] at (1.55,1.95) {breakpoint};
+  \end{scope}
+
+  \begin{scope}[xshift=9.2cm]
+  \node[font=\bfseries] at (1.5,2.6) {Recombinant gametes};
+  \draw[segment,mainblue] (0,1.7)--(1.55,1.7);
+  \draw[segment,burntorange] (1.55,1.7)--(3,1.7);
+  \draw[segment,burntorange] (0,1.1)--(1.55,1.1);
+  \draw[segment,mainblue] (1.55,1.1)--(3,1.1);
+  \draw[dashed] (1.5,0.8)--(1.5,2.0);
+  \end{scope}
+\end{tikzpicture}
+\end{document}

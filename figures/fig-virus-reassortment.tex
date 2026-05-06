@@ -1,0 +1,26 @@
+% Gallery figure source
+% Summary: Reassortment assigns entire genome segments to parental lineages. It is especially important for segmented viruses such as influenza A.
+\documentclass[tikz,border=6pt]{standalone}
+\input{_preamble.tex}
+
+\begin{document}
+\begin{tikzpicture}[scale=1.0]
+  \node[font=\bfseries] at (1.7,3.2) {Parent strain X};
+  \foreach \y/\lab in {2.5/seg 1,2.0/seg 2,1.5/seg 3}{
+    \draw[segment,mainblue] (0.3,\y)--(3.1,\y);
+    \node[left,font=\small] at (0.3,\y) {\lab};
+  }
+  \node[font=\bfseries] at (6.2,3.2) {Parent strain Y};
+  \foreach \y/\lab in {2.5/seg 1,2.0/seg 2,1.5/seg 3}{
+    \draw[segment,burntorange] (4.8,\y)--(7.6,\y);
+    \node[left,font=\small] at (4.8,\y) {\lab};
+  }
+  \node[font=\bfseries] at (10.8,3.2) {Reassorted virus};
+  \draw[segment,mainblue] (9.4,2.5)--(12.2,2.5); \node[left,font=\small] at (9.4,2.5) {seg 1};
+  \draw[segment,burntorange] (9.4,2.0)--(12.2,2.0); \node[left,font=\small] at (9.4,2.0) {seg 2};
+  \draw[segment,mainblue] (9.4,1.5)--(12.2,1.5); \node[left,font=\small] at (9.4,1.5) {seg 3};
+  \draw[arr,draw=darkgray] (3.4,1.0) .. controls (3.85,0.8) and (4.1,0.8) .. (4.4,1.0);
+  \draw[arr,draw=darkgray] (7.9,1.0) .. controls (8.35,0.8) and (8.65,0.8) .. (9.0,1.0);
+  \node[align=center,font=\small,text width=3.4cm] at (6.2,0.65) {co-infection and packaging choose whole segments};
+\end{tikzpicture}
+\end{document}
